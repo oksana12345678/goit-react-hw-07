@@ -9,27 +9,8 @@ const contactsSlice = createSlice({
       { id: "id-3", name: "Eden Clements", number: "645-17-79" },
       { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
     ],
-  },
-  reducers: {
-    addContact: {
-      reducer(state, action) {
-        state.items.push(action.payload);
-      },
-      prepare(name, number) {
-        return {
-          payload: {
-            id: nanoid(),
-            name,
-            number,
-          },
-        };
-      },
-    },
-    deleteContact(state, action) {
-      const index = state.items.findIndex((task) => task.id === action.payload);
-      state.items.splice(index, 1);
-    },
+    loading: false,
+    error: null,
   },
 });
-export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactReducer = contactsSlice.reducer;
