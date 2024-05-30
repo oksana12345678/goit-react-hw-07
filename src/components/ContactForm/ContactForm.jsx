@@ -2,7 +2,7 @@ import { Formik, ErrorMessage, Field, Form } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
 import css from "./ContactForm.module.css";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/operations";
 import { useDispatch } from "react-redux";
 
 export default function ContactForm() {
@@ -20,8 +20,7 @@ export default function ContactForm() {
       .required("Required"),
   });
   const handleSubmit = (values, actions) => {
-    const { name } = values;
-    const { number } = values;
+    const { name, number } = values;
     dispatch(addContact(name, number));
     actions.resetForm();
   };
