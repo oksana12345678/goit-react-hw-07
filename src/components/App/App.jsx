@@ -7,7 +7,7 @@ import Error from "../Error/Error";
 import { useDispatch, useSelector } from "react-redux";
 import { selectError, selectLoading } from "../../redux/selectors";
 import { useEffect } from "react";
-import { fetchContact } from "../../redux/operations";
+import { fetchContact } from "../../redux/contactsOps";
 
 function App() {
   const dispatch = useDispatch();
