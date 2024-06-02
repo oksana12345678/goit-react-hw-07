@@ -7,15 +7,14 @@ import Error from "../Error/Error";
 import { useDispatch, useSelector } from "react-redux";
 import { selectError, selectLoading } from "../../redux/selectors";
 import { useEffect } from "react";
-import { fetchContact } from "../../redux/contactsOps";
+import { fetchContacts } from "../../redux/contactsOps";
 
 function App() {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
-  console.log(loading);
   useEffect(() => {
-    dispatch(fetchContact());
+    dispatch(fetchContacts());
   }, [dispatch]);
   return (
     <div className="mainContainer">
